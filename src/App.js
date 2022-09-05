@@ -1,23 +1,19 @@
-import { Link, Outlet } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import AllMeetupsPage from "./pages/AllMeetups";
 import FavoritePage from "./pages/Favorites";
 import NewMeetupPage from "./pages/NewMeetup";
+import Layout from "./components/layout/Layout";
 
 function App() {
   return (
-    <div>
-      <Link to="/">
-        <AllMeetupsPage />
-      </Link>
-      <Link to="/new-meetup">
-        <NewMeetupPage />
-      </Link>
-      <Link to="/favorites">
-        <FavoritePage />
-      </Link>
-      <Outlet />
-    </div>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<AllMeetupsPage />} />
+        <Route path="/new-meetup" element={<NewMeetupPage />} />
+        <Route path="/favorites" element={<FavoritePage />} />
+      </Routes>
+    </Layout>
   );
 }
 
